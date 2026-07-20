@@ -1,60 +1,32 @@
-# Coach Knux
+# React + TypeScript + Vite
 
-**Your AI striking coach.**
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-Coach Knux is an AI-powered Muay Thai coaching platform that analyzes training videos using pose estimation, form evaluation, and regression-tested computer vision.
+Currently, two official plugins are available:
 
-The long-term vision is to help athletes train smarter at home by turning uploaded videos and live webcam sessions into clear, measurable coaching feedback.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## Current Status
+## React Compiler
 
-Ugly v0 shipped.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-Current version includes:
+## Expanding the Oxlint configuration
 
-- Basic Python project structure
-- Streamlit app shell
-- Geometry helper functions for distance, midpoint, and angle calculations
-- Unit tests for core math utilities
-- Initial setup for future pose estimation and form analysis
+If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
 
-## Product Vision
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc"],
+  "options": {
+    "typeAware": true
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  }
+}
+```
 
-Coach Knux will eventually support three main training modes:
-
-### 1. Upload Video Analysis
-
-Users upload a Muay Thai training video. Coach Knux analyzes the footage and returns a coaching report.
-
-Planned feedback includes:
-
-- Guard drops
-- Chin exposure
-- Slow hand return
-- Weak hip rotation
-- Poor stance balance
-- Incomplete punch or kick mechanics
-
-### 2. Live Webcam Coach
-
-Users train in front of their MacBook webcam and receive real-time feedback while shadowboxing.
-
-Planned live feedback includes:
-
-- Hands up / hands down status
-- Chin tucked / chin exposed status
-- Hip rotation feedback
-- Combo timing feedback
-- Round timer
-- Score updates
-
-### 3. Combo Challenge Mode
-
-A Dance Dance Revolution-style Muay Thai training mode.
-
-Coach Knux will show example combos for users to perform in front of the webcam, then score their performance.
-
-Example combo:
-
-```text
-Jab → Cross → Lead Hook → Rear Kick
+See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
