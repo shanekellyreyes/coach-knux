@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "knux"
+version = "0.1.0"
+description = "AI Muay Thai striking coach for video analysis and combo training."
+requires-python = ">=3.11"
+dependencies = [
+    "streamlit",
+    "opencv-python",
+    "mediapipe",
+    "numpy",
+    "pandas",
+    "pydantic",
+    "pytest",
+]
+
+[tool.setuptools.packages.find]
+where = ["app"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["app"]
